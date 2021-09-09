@@ -1,4 +1,5 @@
 #include <iostream>
+#include <array>
 
 using namespace std;
 
@@ -12,73 +13,14 @@ void decimalToBinary(int decimalNUM) {
 
 	}
 
-	int result = (decimalNUM / 2) + 0.5;
-	int remainder = decimalNUM % 2;
+	for (int i = 7; decimalNUM != 0; i--) {
 
-	binary[7] = remainder;
+		binary[i] = decimalNUM % 2;
 
-	if (remainder != 0) {
+		decimalNUM /= 2;
 
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[6] = remainder;
 	}
 
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[5] = remainder;
-	}
-
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[4] = remainder;
-	}
-
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[3] = remainder;
-	}
-
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[2] = remainder;
-	}
-
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[1] = remainder;
-	}
-
-	if (remainder != 0) {
-
-		result = result / 2;
-
-		remainder = result % 2;
-
-		binary[0] = remainder;
-	}
 
 	for (int i = 0; i < 8; i++) {
 
@@ -88,13 +30,56 @@ void decimalToBinary(int decimalNUM) {
 
 }
 
+void decimaltoHex(int decimalNUM) {
+
+	char hexNUMS[50];
+
+	for (int i = 49; decimalNUM != 0; i--) {
+
+		int remainder = decimalNUM % 16;
+
+		if (remainder >= 10) {
+
+			remainder + 55;
+
+			hexNUMS[i] = remainder;
+
+		}
+		else {
+
+			remainder + 48;
+
+			hexNUMS[i] = remainder;
+
+		}
+
+
+	}
+
+	for (int i = 0; i < 50; i++) {
+
+		cout << hexNUMS[49];
+
+	}
+
+
+
+}
+
 int main() {
 
-	decimalToBinary(125);
 	
+/*
+	for (int i = 0; i <= 255; i++) {
 
+		cout << i << "      "; decimalToBinary(i); 
+		cout << endl;
 
+	}
+	
+	*/
 
+	decimaltoHex(48);
 
 	return 0;
 }

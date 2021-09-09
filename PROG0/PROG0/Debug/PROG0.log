@@ -1,3 +1,4 @@
 ﻿  Source.cpp
-C:\Users\ammarhus\Desktop\CIS-310\PROG0\PROG0\Source.cpp(15,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  PROG0.vcxproj -> C:\Users\ammarhus\Desktop\CIS-310\PROG0\Debug\PROG0.exe
+C:\Users\Ammar\Desktop\CIS-310\PROG0\PROG0\Source.cpp(43,14): warning C4552: '+': result of expression not used
+C:\Users\Ammar\Desktop\CIS-310\PROG0\PROG0\Source.cpp(50,14): warning C4552: '+': result of expression not used
+  PROG0.vcxproj -> C:\Users\Ammar\Desktop\CIS-310\PROG0\Debug\PROG0.exe
