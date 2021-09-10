@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include <vector>
 
 using namespace std;
 
@@ -32,54 +33,75 @@ void decimalToBinary(int decimalNUM) {
 
 void decimaltoHex(int decimalNUM) {
 
-	char hexNUMS[50];
+	vector<char> hexNUMS;
 
-	for (int i = 49; decimalNUM != 0; i--) {
+	for (int i = 1; decimalNUM != 0; i--) {
 
 		int remainder = decimalNUM % 16;
 
 		if (remainder >= 10) {
 
-			remainder + 55;
+			int result = remainder + 55;
 
-			hexNUMS[i] = remainder;
+			hexNUMS.push_back(result);
 
 		}
 		else {
 
-			remainder + 48;
+			int result = remainder + 48;
 
-			hexNUMS[i] = remainder;
+			hexNUMS.push_back(result);
 
 		}
+
+		decimalNUM /= 16;
 
 
 	}
 
-	for (int i = 0; i < 50; i++) {
+	if (hexNUMS.empty()) {
 
-		cout << hexNUMS[49];
+		hexNUMS.push_back(48);
+		hexNUMS.push_back(48);
 
+	}
+
+	if (hexNUMS.size() == 1) {
+
+		hexNUMS.push_back(48);
+	}
+
+	for (int i = hexNUMS.size() - 1; i != -1; i--)
+	{
+		cout << hexNUMS.at(i);
 	}
 
 
 
 }
 
+void decimaltoBCD(int decimalNUM) {
+
+	int hundereds = decimalNUM / 100;
+
+	cout << hundereds;
+}
+
 int main() {
 
-	
-/*
+	/*
+	cout << "Decimal" << "    " << "Binary" << "      " << "HexDecimal" << endl << endl;
+
 	for (int i = 0; i <= 255; i++) {
 
-		cout << i << "      "; decimalToBinary(i); 
+		cout << i << "         "; decimalToBinary(i); 
+		cout << "         "; decimaltoHex(i);
 		cout << endl;
 
 	}
-	
 	*/
 
-	decimaltoHex(48);
+	decimaltoBCD(255);
 
 	return 0;
 }
