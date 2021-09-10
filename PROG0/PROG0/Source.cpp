@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -82,26 +83,69 @@ void decimaltoHex(int decimalNUM) {
 
 void decimaltoBCD(int decimalNUM) {
 
-	int hundereds = decimalNUM / 100;
+	string decimal = to_string(decimalNUM);
 
-	cout << hundereds;
+	if (decimal.size() == 2) {
+
+		cout << "0000 ";
+
+	}
+
+	if (decimal.size() == 1) {
+
+		cout << "0000 0000 ";
+
+	}
+
+	for (int i = 0; i < decimal.size(); i++) {
+
+		int BCD[4];
+
+		for (int i = 0; i < 4; i++) {
+
+			BCD[i] = 0;
+
+		}
+
+		int decimalNUM = decimal.at(i) - 48;
+
+		for (int i = 3; decimalNUM != 0; i--) {
+
+			int remainder = decimalNUM % 2;
+
+			BCD[i] = remainder;
+
+			decimalNUM /= 2;
+
+		}
+
+		for (int i = 0; i < 4; i++) {
+
+			cout << BCD[i];
+
+		}
+
+		cout << " ";
+
+	}
 }
 
 int main() {
 
-	/*
-	cout << "Decimal" << "    " << "Binary" << "      " << "HexDecimal" << endl << endl;
+	
+	cout << "Decimal" << "    " << "Binary" << "      " << "HexDecimal" << "          " << "BCD" << endl << endl;
 
 	for (int i = 0; i <= 255; i++) {
 
 		cout << i << "         "; decimalToBinary(i); 
 		cout << "         "; decimaltoHex(i);
+		cout << "         "; decimaltoBCD(i);
 		cout << endl;
 
 	}
-	*/
+	
 
-	decimaltoBCD(255);
+
 
 	return 0;
 }
