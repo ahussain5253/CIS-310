@@ -137,15 +137,12 @@ int main() {
 
 	for (int i = 0; i <= 255; i++) {
 
-		cout << i << "         "; decimalToBinary(i); 
+		cout << i << "         "; decimalToBinary(i);
 		cout << "         "; decimaltoHex(i);
 		cout << "         "; decimaltoBCD(i);
 		cout << endl;
 
 	}
 	
-
-
-
 	return 0;
 }
