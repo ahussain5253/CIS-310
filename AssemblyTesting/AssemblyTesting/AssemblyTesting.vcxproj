@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2cec18bb-038c-4222-9933-80c890d99a1e}</ProjectGuid>
-    <RootNamespace>PROG1</RootNamespace>
+    <ProjectGuid>{00216c74-0422-4b41-b513-aab2b3a3fe10}</ProjectGuid>
+    <RootNamespace>AssemblyTesting</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -94,13 +94,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <MASM>
-      <GeneratePreprocessedSourceListing>true</GeneratePreprocessedSourceListing>
-    </MASM>
-    <MASM>
-      <ListAllAvailableInformation>true</ListAllAvailableInformation>
-      <AssembledCodeListingFile>$(ProjectName).lst</AssembledCodeListingFile>
-    </MASM>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -147,10 +140,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <MASM Include="Program1.asm">
+    <MASM Include="Testing.asm">
       <FileType>Document</FileType>
     </MASM>
-    <MASM Include="Testing.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
