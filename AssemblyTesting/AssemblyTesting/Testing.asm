@@ -1,30 +1,18 @@
 
+; Author:
+; Program Name:
+; Program Description:
+; Date
 
-.386
-.model flat,stdcall
-.stack 4096
-ExitProcess proto,dwExitCode:dword
+INCLUDE Irvine32.inc
 
-
-
-
-
-
+.data
 
 .code
-main proc
+main PROC
+mov eax, 5
+call writeint
 
-mov ax, 008h
-mov bl, 2
-div bl
-
-
-
-
-
-
-
-	invoke ExitProcess, 0
-
-main endp
-end main
+ exit
+main ENDP
+END main
