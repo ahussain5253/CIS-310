@@ -1,2 +1,3 @@
 ﻿  Assembling Testing.asm...
-  AssemblyTesting.vcxproj -> C:\Users\Ammar\Desktop\CIS-310\AssemblyTesting\Debug\AssemblyTesting.exe
+C:\Irvine\SmallWin.inc(11): warning A4011: multiple .MODEL directives found : .MODEL ignored
+  AssemblyTesting.vcxproj -> C:\Users\Ammar Hussain\Documents\GitHub\CIS-310\AssemblyTesting\Debug\AssemblyTesting.exe
