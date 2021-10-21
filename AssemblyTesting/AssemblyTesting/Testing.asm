@@ -1,22 +1,29 @@
 
-.386
-.model flat,stdcall
-ExitProcess Proto, dwExitCode:DWORD
 
 INCLUDE Irvine32.inc
 
 .data
-decNum    DWORD ?
-promptBad BYTE "Invalid input, please enter again",0
+	prompt byte "Please enter a number from 0 - 100: "
+    decNum BYTE ?
+	grade BYTE ?
+   
+
+
 .code
 main PROC
-read:  call ReadDec
-       jnc  goodInput
 
-       jmp  read        ;go input again
+	mov edx, offset prompt
+	call writestring
 
-goodInput:
-       mov  decNum,eax  ;store good value
+	call readint
+	mov decNum, al
+
+	.IF decNUM > 90
+		mov al, 'A'
+	.ENDIF
+
+
+
 
 	
 
