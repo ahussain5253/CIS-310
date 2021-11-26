@@ -99,7 +99,7 @@ void readFile() {
 
 	ifstream filestream;
 
-	filestream.open("HexdecArithmetic.txt");
+	filestream.open("InputFile.txt");
 
 	if (!filestream) {
 
