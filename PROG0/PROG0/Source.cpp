@@ -2,6 +2,7 @@
 #include <array>
 #include <vector>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -130,9 +131,40 @@ void decimaltoBCD(int decimalNUM) {
 	}
 }
 
+int hexToDec(string hexdecString) {
+
+	int length = hexdecString.length();
+	int base = 1;
+	int decimal = 0;
+	int pos;
+
+	// Loop that obtains characters from string
+
+	for (pos = length - 1; pos >= 0; pos--) {
+
+		if (hexdecString.at(pos) >= '0' && hexdecString.at(pos) <= '9') {
+
+			decimal += (hexdecString.at(pos) - 48) * base;
+			base = base * 16;
+
+		}
+
+		else if (hexdecString.at(pos) >= 'A' && hexdecString.at(pos) <= 'F') {
+
+			decimal += (hexdecString[pos] - 55) * base;
+			base = base * 16;
+
+		}
+
+	}
+
+	return decimal;
+
+}
+
 int main() {
 
-	
+	/*
 	cout << "Decimal" << "    " << "Binary" << "      " << "HexDecimal" << "          " << "BCD" << endl << endl;
 
 	for (int i = 0; i <= 255; i++) {
@@ -143,6 +175,20 @@ int main() {
 		cout << endl;
 
 	}
+	*/
+	string HEX1 = "FACDFDB1";
+	string HEX2 = "45CDF521";
+
+	double dec = hexToDec(HEX1);
+	double dec2 = hexToDec(HEX2);
+
+	cout << hex << dec << " " << dec2 << endl;
+
+	cout << dec / dec2;
+
+	
+
+
 	
 	return 0;
 }

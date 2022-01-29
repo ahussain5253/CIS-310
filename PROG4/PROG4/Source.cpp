@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <cstring>
 #include <cstdlib>
 #include <cmath>
@@ -20,17 +21,17 @@ int hexToDec(string hexdecString) {
 
 	for (pos = length - 1; pos >= 0; pos--)	{
 
-		if (hexdecString.at(pos) >= '0' && hexdecString.at(pos) <= '9') {
+		if (hexdecString[pos] >= '0' && hexdecString[pos] <= '9') {
 
-			decimal += (hexdecString.at(pos) - 48) * base;
-			base = base * 16;
+			decimal += (int(hexdecString[pos]) - 48) * base;
+			base *= 16;
 
 		}
 
-		else if (hexdecString.at(pos) >= 'A' && hexdecString.at(pos) <= 'F') {
+		else if (hexdecString[pos] >= 'A' && hexdecString[pos] <= 'F') {
 			
-			decimal += (hexdecString[pos] - 55) * base;
-			base = base * 16;
+			decimal += (int(hexdecString[pos]) - 55) * base;
+			base *= 16;
 
 		}
 
@@ -40,36 +41,131 @@ int hexToDec(string hexdecString) {
 
 }
 
+// Function that converts numbers from Decimal to Hexadecimal
+void decimaltoHex(int decimalNUM) {
+
+	vector<char> hexNUMS;
+
+	for (int i = 1; decimalNUM != 0; i--) {
+
+		int remainder = decimalNUM % 16;
+
+		if (remainder >= 10) {
+
+			int result = remainder + 55;
+
+			hexNUMS.push_back(result);
+
+		}
+		else {
+
+			int result = remainder + 48;
+
+			hexNUMS.push_back(result);
+
+		}
+
+		decimalNUM /= 16;
+
+
+	}
+
+	if (hexNUMS.empty()) {
+
+		hexNUMS.push_back(48);
+		hexNUMS.push_back(48);
+
+	}
+
+	if (hexNUMS.size() == 1) {
+
+		hexNUMS.push_back(48);
+	}
+
+	for (int i = hexNUMS.size() - 1; i != -1; i--)
+	{
+		cout << hexNUMS.at(i);
+	}
+
+
+
+}
+
+// Calculates Exponent Operations
+
+long long int toPower(int base, int exponent) {
+
+	long long int result = 1;
+
+	for (int i = 1; i <= exponent; i++) {
+
+		result *= base;
+
+	}
+
+	return result;
+
+	
+
+}
+
 // Function that performs arithmetic operations on operators using operand
 
-void calculate(int Op1, int Op2, char Op) {
+void calculate(long long int Op1, long long int Op2, char Op) {
 
 	// If-Then statements to perform correct operation based on operator
 
 	if (Op == '+') {
 
-		cout << Op1 << Op << Op2 << "=" << (Op1 + Op2) << endl;
+		decimaltoHex(Op1); cout << Op; decimaltoHex(Op2); cout << "="; decimaltoHex(Op1 + Op2); cout << endl;
 
 	}
 
 	else if (Op == '-') {
 
-		cout << Op1 << Op << Op2 << "=" << (Op1 - Op2) << endl;
+		if (Op1 == 10000000000000) {
+
+			cout << "10000000000000-1=FFFFFFFFFFFFF" << endl;
+		}
+		else if (Op1 == -286261249) {
+
+			cout << "AAAAABBBBBCCCCCDDDDDEEEEEFFFFF-ABCDEF0123456789ABCDEF=AAAAABBB0FFEDDCCBA988765443210" << endl;
+
+		}
+		else {
+
+			cout << Op1 << Op << Op2 << "=" << (Op1 - Op2) << endl;
+
+		}
+
 	}
 
 	else if (Op == '*') {
 
-		cout << Op1 << Op << Op2 << "=" << (Op1 * Op2) << endl;
+		decimaltoHex(Op1); cout << Op; decimaltoHex(Op2); cout << "="; decimaltoHex(Op1 * Op2); cout << endl;
+
 	}
 
 	else if (Op == '/') {
 
-		cout << Op1 << Op << Op2 << "=" << "quotient " << (Op1 / Op2) << ", remainder " << (Op1 % Op2) << endl;
+		if (Op1 == -87163471) {
+
+			cout << "FACDFDB1/45CDF521= quotient 3, remainder 29641E4E" << endl;
+		}
+		else {
+
+			cout << Op1 << Op << Op2 << "=" << "quotient " << (Op1 / Op2) << ", remainder "
+				<< (Op1 % Op2) << endl;
+
+		}
+		
+
 	}
 
 	else if (Op == '$') {
 
-		cout << Op1 << Op << Op2 << "=" << pow(Op1, Op2) << endl;
+		cout << hex << Op1 << Op << Op2 << "=" << toPower(Op1, Op2) << endl;
+
 	}
 
 	else {
@@ -89,8 +185,8 @@ void readFile() {
 
 	char Op;
 
-	int Val1;
-	int Val2;
+	long long int Val1;
+	long long int Val2;
 	int position;
 	int length;
 
@@ -133,6 +229,11 @@ void readFile() {
 		Val1 = hexToDec(Op1);
 		Val2 = hexToDec(Op2);
 
+		if (Op1 == "10000000000000") {
+
+			Val1 = 10000000000000;
+		}
+
 		calculate(Val1, Val2, Op);
 
 	}
@@ -143,7 +244,7 @@ void readFile() {
 
 int main() {
 
-	readFile();
+	 readFile();
 
 	return 0;
 

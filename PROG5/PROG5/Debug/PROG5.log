@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\User\Documents\GitHub\CIS-310\PROG5\PROG5\Source.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\CIS-310\PROG5\PROG5\Source.cpp(74,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\CIS-310\PROG5\PROG5\Source.cpp(86,13): warning C4018: '<': signed/unsigned mismatch
+  PROG5.vcxproj -> C:\Users\User\Documents\GitHub\CIS-310\PROG5\Debug\PROG5.exe
